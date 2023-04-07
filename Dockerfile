@@ -13,12 +13,12 @@ RUN wget --quiet --output-document=- https://dl-ssl.google.com/linux/linux_signi
   apt-get update && \
   apt-get install google-chrome-stable -y --no-install-recommends && \
   rm -rf /var/lib/apt/lists/*
-#   npm run prod
+
 COPY . /app
-
 WORKDIR /app
-# RUN . ~/.bashrc
 
-# ENV NODE_ENV production
-RUN ~/.bun/bin/bun install
-ENTRYPOINT [ "npm", "run", "prod" ]
+ENV PATH="/root/.bun/bin:${PATH}"
+
+RUN bun install
+
+CMD [ "bun", "run", "prod" ]
