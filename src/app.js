@@ -12,7 +12,6 @@ const config = require('./config');
 
 
 function createApp() {
-  require('dotenv').config();
   const app = express();
   // App is served behind Heroku's router.
   // This is needed to be able to use req.ip or req.secure
