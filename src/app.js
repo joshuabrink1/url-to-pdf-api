@@ -10,12 +10,14 @@ const requireHttps = require('./middleware/require-https');
 const createRouter = require('./router');
 const config = require('./config');
 
+
 function createApp() {
+  require('dotenv').config();
   const app = express();
   // App is served behind Heroku's router.
   // This is needed to be able to use req.ip or req.secure
-  app.enable('trust proxy', 1);
-  app.disable('x-powered-by');
+  // app.enable('trust proxy', 1);
+  // app.disable('x-powered-by');
 
   if (config.NODE_ENV !== 'production') {
     app.use(morgan('dev'));
