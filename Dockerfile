@@ -21,4 +21,4 @@ ENV PATH="/root/.bun/bin:${PATH}"
 
 RUN bun install
 
-CMD [ "bun", "run", "prod" ]
+CMD [ "bun", "run", "start" ]
