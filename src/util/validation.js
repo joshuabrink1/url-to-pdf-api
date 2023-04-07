@@ -67,6 +67,7 @@ const sharedQuerySchema = Joi.object({
 
 const renderQuerySchema = Joi.object({
   url: urlSchema.required(),
+  "x-api-key": Joi.string(),
 }).concat(sharedQuerySchema);
 
 const renderBodyObject = Joi.object({
