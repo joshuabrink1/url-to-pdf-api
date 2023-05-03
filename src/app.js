@@ -22,12 +22,12 @@ function createApp() {
     app.use(morgan('dev'));
   }
 
-  if (!config.ALLOW_HTTP) {
-    logger.info('All requests require HTTPS.');
-    app.use(requireHttps());
-  } else {
-    logger.info('ALLOW_HTTP=true, unsafe requests are allowed. Don\'t use this in production.');
-  }
+  // if (!config.ALLOW_HTTP) {
+  //   logger.info('All requests require HTTPS.');
+  //   app.use(requireHttps());
+  // } else {
+  //   logger.info('ALLOW_HTTP=true, unsafe requests are allowed. Don\'t use this in production.');
+  // }
 
   if (config.ALLOW_URLS) {
     logger.info(`ALLOW_URLS set! Allowed urls patterns are: ${config.ALLOW_URLS.join(' ')}`);
