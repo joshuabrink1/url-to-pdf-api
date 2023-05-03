@@ -9,10 +9,12 @@ const { renderQuerySchema, renderBodySchema, sharedQuerySchema } = require('./ut
 function createRouter() {
   const router = express.Router();
 
+  router.get('/', (req, res) => res.status(200).send('OK'));
+
   if (!_.isEmpty(config.API_TOKENS)) {
     logger.info('x-api-key authentication required');
 
-    router.use('/*', (req, res, next) => {
+    router.use('/api/*', (req, res, next) => {
       const userToken = req.query['x-api-key'];
       if (!_.includes(config.API_TOKENS, userToken)) {
         const err = new Error('Invalid API token in x-api-key header.');
